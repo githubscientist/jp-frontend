@@ -29,8 +29,8 @@ api.interceptors.response.use(
     (error) => {
         // handle common error cases
         if (error.response?.status === 401) {
-            // token expired or unauthorized
-            window.location.href = '/login';
+            // token expired or unauthorized - let React Router handle this
+            console.log('Unauthorized request:', error.config?.url);
         }
         return Promise.reject(error);
     }
